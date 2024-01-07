@@ -1,14 +1,12 @@
-package com.example.weleadfoodapp.model;
+package com.example.weleadfoodapp.transfer.resource;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
-@Builder
 @ToString(callSuper = true)
-public class StoreCategory extends BaseModel {
+public class CategoryResource extends BaseResource {
     private String description;
 }
