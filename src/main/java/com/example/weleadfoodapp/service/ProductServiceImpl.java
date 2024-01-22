@@ -1,19 +1,19 @@
 package com.example.weleadfoodapp.service;
 
-import com.example.weleadfoodapp.model.Category;
 import com.example.weleadfoodapp.model.Product;
-import com.example.weleadfoodapp.repository.BaseRepository;
 import com.example.weleadfoodapp.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class ProductServiceImpl extends BaseServiceImpl<Product> implements ProductService {
     private final ProductRepository productRepository;
+    private final CategoryService categoryService;
 
     @Override
-    protected BaseRepository<Product, Long> getRepository() {
+    protected JpaRepository<Product, Long> getRepository() {
         return productRepository;
     }
 
@@ -23,8 +23,9 @@ public class ProductServiceImpl extends BaseServiceImpl<Product> implements Prod
     }
 
     @Override
-    public Product create(final Product product, final Category category) {
+    public Product create(final Product product, final Long categoryId) {
+        var category = categoryService.get(categoryId);
         product.setCategory(category);
-        return productRepository.create(product);
+        return productRepository.save(product);
     }
 }

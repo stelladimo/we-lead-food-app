@@ -1,13 +1,9 @@
 package com.example.weleadfoodapp.service;
 
-import com.example.weleadfoodapp.model.Customer;
-import com.example.weleadfoodapp.model.Order;
-import com.example.weleadfoodapp.model.OrderItem;
-import com.example.weleadfoodapp.model.PaymentMethod;
-import com.example.weleadfoodapp.model.Product;
-import com.example.weleadfoodapp.repository.BaseRepository;
+import com.example.weleadfoodapp.model.*;
 import com.example.weleadfoodapp.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -20,7 +16,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
     private final OrderRepository orderRepository;
 
     @Override
-    protected BaseRepository<Order, Long> getRepository() {
+    protected JpaRepository<Order, Long> getRepository() {
         return orderRepository;
     }
 
@@ -114,7 +110,7 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
 
     private BigDecimal giveDiscounts(Order order) {
         float totalDiscount =
-                 order.getPaymentMethod().getDiscount();
+                order.getPaymentMethod().getDiscount();
 
         // Calculate original order cost
         BigDecimal originalCost = order.getOrderItems()

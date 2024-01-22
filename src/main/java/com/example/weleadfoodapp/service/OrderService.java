@@ -17,4 +17,3 @@ public interface OrderService extends BaseService<Order, Long> {
     Order checkout(Order order, PaymentMethod paymentMethod);
 
 }
-//do mvn clean package

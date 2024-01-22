@@ -1,9 +1,9 @@
 package com.example.weleadfoodapp.service;
 
 import com.example.weleadfoodapp.model.Category;
-import com.example.weleadfoodapp.repository.BaseRepository;
 import com.example.weleadfoodapp.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,7 +12,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     private final CategoryRepository categoryRepository;
 
     @Override
-    protected BaseRepository<Category, Long> getRepository() {
+    protected JpaRepository<Category, Long> getRepository() {
         return categoryRepository;
     }
 
