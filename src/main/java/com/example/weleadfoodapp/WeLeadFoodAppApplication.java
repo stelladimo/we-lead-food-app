@@ -12,7 +12,7 @@ public class WeLeadFoodAppApplication {
         var customer = new Customer();
         customer.setEmail("customer1@gmail.com");
 
-        var customerViaBuilder = Customer.builder().lastname("Customer").firstname("Bob").Build();
+        var customerViaBuilder = Customer.builder().lastname("Customer").firstname("Bob").build();
     }
 
 }
