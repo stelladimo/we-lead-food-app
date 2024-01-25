@@ -16,7 +16,7 @@ import java.io.Serializable;
 public class BaseModel implements Serializable {
     @Serial
     private final static long serialVersionUID = 1L;
-    private Object GeneretionType;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idGenerator")
     @Column(updatable = false)

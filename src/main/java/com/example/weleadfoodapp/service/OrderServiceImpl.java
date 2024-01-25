@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -87,6 +88,15 @@ public class OrderServiceImpl extends BaseServiceImpl<Order> implements OrderSer
         return create(order);
 
     }
+
+    public Optional<Order> findWithCustomer(Long id) {
+        return orderRepository.findWithCustomer(id);
+    }
+
+    public Optional<Order> findWithAllAssociations(Long id) {
+        return orderRepository.findWithAllAssociations(id);
+    }
+
 
     private boolean checkNullability(Order order, Product product) {
         if (order == null) {
