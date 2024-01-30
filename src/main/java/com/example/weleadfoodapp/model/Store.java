@@ -1,22 +1,34 @@
 package com.example.weleadfoodapp.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
 @ToString(callSuper = true)
+@Table(name = "STORES")
+@SequenceGenerator(name = "idGenerator", sequenceName = "STORES_SEQ", initialValue = 1, allocationSize = 1)
 public class Store extends BaseModel {
-    private  String Name;
+
+    @Column(length = 20, nullable = false)
+    private String name;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
     private StoreCategory storeCategory;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(mappedBy = "store", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
     private final Set<Product> products = new HashSet<>();
 
 

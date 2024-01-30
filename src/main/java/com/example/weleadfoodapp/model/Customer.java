@@ -33,7 +33,5 @@ public class Customer extends BaseModel {
     @Column(length = 50)
     private String address;
 
-    @Column(length = 50, nullable = false)
-    private Order order;
 
 }

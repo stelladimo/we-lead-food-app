@@ -10,6 +10,7 @@ import lombok.ToString;
 public class CustomerResource extends BaseResource {
     private String email;
     private String firstname;
+    private String phone;
     private String lastname;
     private Integer age;
     private String address;

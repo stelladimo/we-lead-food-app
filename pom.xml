@@ -24,8 +24,8 @@
         <!-- Desired Maven version -->
         <maven.version>3.9.6</maven.version>
         <!-- Build JDK -->
-        <java.version>21.0.1</java.version>
-
+        <java.version>21</java.version>
+        <disruptor-maven-plugin.version>3.4.4</disruptor-maven-plugin.version>
         <!-- Maven source encoding -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

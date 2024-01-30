@@ -16,6 +16,10 @@ import java.math.BigDecimal;
 @Table(name = "PRODUCTS", indexes = {@Index(columnList = "serial")})
 @SequenceGenerator(name = "idGenerator", sequenceName = "PRODUCTS_SEQ", initialValue = 1, allocationSize = 1)
 public class Product extends BaseModel {
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Store store;
+
     @NotNull
     @Column(length = 50, nullable = false)
     private String name;
